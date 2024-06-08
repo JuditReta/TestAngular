@@ -1,0 +1,49 @@
+<div class="wrap-input100 m-b-23">
+  <span class="label-input100">
+    <span class="login100-form-title p-b-49">
+      Detalle
+    </span>
+  </span>
+</div>
+<form
+    #userEditForm="ngForm"
+    (ngSubmit)="update(userEditForm)"
+>
+
+  <div class="wrap-input100 m-b-23">
+    <span class="label-input100">Nombre</span>
+    <input class="input100"
+          type="email"
+          placeholder="Correo"
+          name="email"
+          #email="ngModel"
+          [(ngModel)]="user.username"
+          required
+    >
+  </div>
+
+  <div class="wrap-input100 m-b-23">
+    <span class="label-input100">Imagen</span>
+    <input
+      type="file"
+      name="image"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+    >
+  </div>
+
+  <div class="container-login100-form-btn">
+    <div class="wrap-login100-form-btn">
+        <div class="login100-form-bgbtn"></div>
+        <button type="submit" class="login100-form-btn"
+              [disabled]="!userEditForm.form.valid"
+              >Guardar
+              </button>
+
+    </div>
+</div>
+
+  <div class="wrap-input100 m-b-23">
+    <a routerLink="/home/users">Regresar</a>
+  </div>
+</form>

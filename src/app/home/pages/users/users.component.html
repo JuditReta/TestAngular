@@ -1,0 +1,30 @@
+
+<div>
+  <div>
+    <a [routerLink]="['/auth/register']" class="btn btn-success" style="position: relative; float: right; margin: 10px;"><i class="fa-solid fa-plus"></i></a>
+  </div>
+  <div >
+    <table class="table table-bordered">
+      <thead>
+        <tr style="text-align: center;">
+          <th scope="col">Nombre</th>
+          <th scope="col">Email</th>
+          <th scope="col">Detalles</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.username}}</td>
+          <td>{{user.details}}</td>
+          <td style="text-align: center;">
+            <a [routerLink]="['/home/detail', user.id]" class="btn btn-primary mr-5" style="margin: 10px;"><i class="far fa-eye"></i></a>
+            <a [routerLink]="['/home/edit', user.id]" class="btn btn-success mr-5" style="margin: 10px;"><i class="fas fa-edit"></i></a>
+            <a class="btn btn-danger mr-5" style="margin: 10px;" (click)="delete(user.id!)"><i class="fas fa-trash-alt"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

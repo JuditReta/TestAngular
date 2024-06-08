@@ -1,0 +1,49 @@
+<form class="login100-form"
+        autocomplete="off"
+        #userForm="ngForm"
+        (ngSubmit)="login(userForm)">
+
+      <span class="login100-form-title p-b-49">
+          Iniciar sesión
+      </span>
+
+      <div class="wrap-input100 m-b-23">
+          <span class="label-input100">Correo</span>
+          <input class="input100"
+                 type="email"
+                 placeholder="Correo electrónico"
+                 name="email"
+                 #email="ngModel"
+                 [(ngModel)]="user.username"
+                 required
+          >
+          <span class="form_error" *ngIf="email.touched && !email.valid">El email es obligatorio</span>
+          <span class="focus-input100"></span>
+      </div>
+
+      <div class="wrap-input100">
+          <span class="label-input100">Contraseña</span>
+          <input class="input100"
+               type="password"
+               placeholder="Ingrese su contraseña"
+               name="password"
+               #password="ngModel"
+               [(ngModel)]="user.password"
+               required
+        >
+          <span class="form_error" *ngIf="password.touched && !password.valid">La contraseña es obligatorio</span>
+          <span class="focus-input100"></span>
+      </div>
+
+      <div class="text-right p-t-8 p-b-31"></div>
+
+      <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="login100-form-btn"
+                    type="submit">
+                  Login
+              </button>
+          </div>
+      </div>
+  </form>
